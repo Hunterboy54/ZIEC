@@ -1,0 +1,154 @@
+<!-- site-header-menu -->
+<div id="site-header-menu" class="site-header-menu cmt-bgcolor-white">
+    <div class="site-header-menu-inner cmt-stickable-header">
+        <div class="">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--site-navigation -->
+                    <div class="site-navigation d-flex flex-row align-items-center justify-content-between pr-4">
+                        <!-- site-branding -->
+                        <div class="site-branding pl-4 ">
+                            <a class="home-link" href="../index.html" title="Ziec" rel="home">
+                                <img id="logo-img" class="img-center" src="resources/images/ziec-logo5.png"
+                                     alt="logo-img" style="max-height: 60px">
+                            </a>
+                        </div>
+
+                        <div class="d-flex flex-row">
+                            <div class="btn-show-menu-mobile menubar menubar--squeeze">
+                                <span class="menubar-box">
+                                    <span class="menubar-inner"></span>
+                                </span>
+                            </div>
+                            <!-- menu -->
+                            <nav class="main-menu menu-mobile" id="menu">
+                                <ul class="menu">
+
+                                    <li class="mega-menu-item">
+                                        <a href="index.html">Home</a>
+                                    </li>
+
+
+
+
+
+                                    <li class="mega-menu-item">
+                                        <a href="#" class="mega-menu-link">Coaching</a>
+                                        <ul class="mega-submenu">
+                                            <li><a href="ielts.html">IELTS </a></li>
+                                            <li><a href="gre.html">GRE </a></li>
+                                            <li><a href="toefl.html">TOEFL </a></li>
+                                            <li><a href="pte.html">PTE </a></li>
+                                            <li><a href="sat.html">SAT </a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="mega-menu-item">
+                                        <a href="#" class="mega-menu-link">Study abroad</a>
+                                        <ul class="mega-submenu">
+                                            <li><a href="canada.html">Canada </a></li>
+                                            <li><a href="usa.html">USA </a></li>
+                                            <li><a href="uk.html">United Kingdom </a></li>
+                                            <li><a href="aus.html">Australia </a></li>
+                                            <li><a href="nz.html">New Zealand </a></li>
+
+
+                                        </ul>
+                                    </li>
+                                    <li class="mega-menu-item">
+                                        <a href="#" class="mega-menu-link">Study in europe</a>
+                                        <ul class="mega-submenu">
+                                            <li><a href="italy.html">Italy</a></li>
+                                            <li><a href="Netherlands.html">Netherlands</a></li>
+                                            <li><a href="Hungary.html">Hungary</a></li>
+                                            <li><a href="Norway.html">Norway</a></li>
+                                            <li><a href="Ireland.html">Ireland</a></li>
+                                            <li><a href="germany.html">Germany</a></li>
+                                            <li><a href="swaziland.html">Switzerland</a></li>
+                                            <li><a href="Denmark.html">Denmark</a></li>
+                                            <li><a href="Finland.html">Finland</a></li>
+                                            <li><a href="Bulgaria.html">Bulgaria</a></li>
+                                            <li><a href="Poland.html">Poland</a></li>
+                                        </ul>
+                                    </li>
+
+
+                                    <li class="mega-menu-item">
+                                        <a href="apply.html">Apply</a>
+                                    </li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div><!-- site-navigation end-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- site-header-menu end-->
+
+<script>
+    /*------------------------------------------------------------------------------*/
+    /* Menu
+    /*------------------------------------------------------------------------------*/
+
+    var menu = {
+        initialize: function() {
+            this.Menuhover();
+        },
+
+        Menuhover : function(){
+            var getNav = $("nav.main-menu"),
+                getWindow = $(window).width(),
+                getHeight = $(window).height(),
+                getIn = getNav.find("ul.menu").data("in"),
+                getOut = getNav.find("ul.menu").data("out");
+
+            if ( matchMedia( 'only screen and (max-width: 1200px)' ).matches ) {
+
+                // Enable click event
+                $("nav.main-menu ul.menu").each(function(){
+
+                    // Dropdown Fade Toggle
+                    $("a.mega-menu-link", this).on('click', function (e) {
+                        e.preventDefault();
+                        var t = $(this);
+                        t.toggleClass('active').next('ul').toggleClass('active');
+                    });
+
+                    // Megamenu style
+                    $(".megamenu-fw", this).each(function(){
+                        $(".col-menu", this).each(function(){
+                            $(".title", this).off("click");
+                            $(".title", this).on("click", function(){
+                                $(this).closest(".col-menu").find(".content").stop().toggleClass('active');
+                                $(this).closest(".col-menu").toggleClass("active");
+                                return false;
+                                e.preventDefault();
+
+                            });
+
+                        });
+                    });
+
+                });
+            }
+        },
+    };
+
+
+    $('.btn-show-menu-mobile').on('click', function(e){
+        $(this).toggleClass('is-active');
+        $('.menu-mobile').toggleClass('show');
+        return false;
+        e.preventDefault();
+    });
+
+    // Initialize
+    $(document).ready(function(){
+        menu.initialize();
+
+    });
+
+</script>
